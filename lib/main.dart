@@ -4,7 +4,7 @@ void main() {
   runApp(MyApp());
 }
 
-// https://youtu.be/ULg_aBP9TBI?list=PLFyjjoCMAPtxq8V9fuVmgsYKLNIKqSEV4&t=2032
+// https://youtu.be/ULg_aBP9TBI?list=PLFyjjoCMAPtxq8V9fuVmgsYKLNIKqSEV4&t=3305
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -13,6 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int x = 4;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +22,27 @@ class _MyAppState extends State<MyApp> {
           title: Center(child: Text('Lottery App')),
         ),
         body: Column(
-          children: [],
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Text('Lottery winning number is $x'),
+            ),
+            Container(
+                height: 250,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade200,
+                ),
+                child: Column(
+                  children: [
+                    const Icon(
+                      Icons.error,
+                      color: Colors.red,
+                      size: 28,
+                    ),
+                    Text('Batter luck next time, your number is $x try again.')
+                  ],
+                ))
+          ],
         ),
         floatingActionButton:
             FloatingActionButton(onPressed: () {}, child: Icon(Icons.refresh)),
